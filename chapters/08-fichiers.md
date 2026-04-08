@@ -1,11 +1,7 @@
 # Manipulation de Fichiers
 
-8-Manipulation_fichier.md2025-02-27
 
 ## Manipulation des fichiers en PHP
-
-
-## Par Robert DIASSÉ
 
 
 ## 1. Introduction aux fichiers en PHP
@@ -22,10 +18,9 @@ plus simples et efficaces pour gérer les fichiers.
 
 Exemple : écrire dans un fichier texte
 
-```php <?php $contenu = "Bonjour, ceci est un fichier texte en PHP."; file_put_contents("mon_fichier.txt", $contenu); echo "Fichier créé avec succès."; ?>
+```php <?php $contenu = "Bonjour, ceci est un fichier texte en PHP."; file_put_contents("mon_fichier.txt", $contenu); echo "Fichier créé avec succès.";
 ```
 
-8-Manipulation_fichier.md2025-02-27
 
 **Explication :**
 
@@ -39,7 +34,7 @@ Si le fichier existe, son contenu est remplacé.
 
 Exemple : lire un fichier texte
 
-```php <?php $contenu = file_get_contents("mon_fichier.txt"); echo "Contenu du fichier : " . $contenu; ?>
+```php <?php $contenu = file_get_contents("mon_fichier.txt"); echo "Contenu du fichier : " . $contenu;
 ```
 
 
@@ -57,12 +52,12 @@ forme de chaîne.
 ### 2.3. Ajouter du contenu sans écraser
 
 
-```php Pour ajouter du contenu au lieu de remplacer le fichier, on utilise FILE_APPEND. <?php file_put_contents("mon_fichier.txt", "\nLigne ajoutée.", FILE_APPEND); echo "Texte ajouté au fichier."; ?>
+```php Pour ajouter du contenu au lieu de remplacer le fichier, on utilise FILE_APPEND. <?php file_put_contents("mon_fichier.txt", "\nLigne ajoutée.", FILE_APPEND); echo "Texte ajouté au fichier.";
 ```
 
 
 
-```php FILE_APPEND permet d'ajouter du contenu à la fin du fichier sans écraser les données existantes. 3. Autres méthodes : fopen(), fwrite(), fread() 3.1. Création et écriture avec fopen() et fwrite() <?php $fichier = fopen("mon_fichier2.txt", "w"); // Ouvre le fichier en mode écriture fwrite($fichier, "Ceci est un test."); fclose($fichier); echo "Fichier écrit avec fopen()."; ?>
+```php FILE_APPEND permet d'ajouter du contenu à la fin du fichier sans écraser les données existantes. 3. Autres méthodes : fopen(), fwrite(), fread() 3.1. Création et écriture avec fopen() et fwrite() <?php $fichier = fopen("mon_fichier2.txt", "w"); // Ouvre le fichier en mode écriture fwrite($fichier, "Ceci est un test."); fclose($fichier); echo "Fichier écrit avec fopen().";
 ```
 
 
@@ -72,7 +67,7 @@ forme de chaîne.
 
 écrasé.
 
-```php fwrite() écrit du texte dans le fichier. fclose() ferme le fichier. 3.2. Lecture avec fopen() et fread() <?php $fichier = fopen("mon_fichier2.txt", "r"); // Ouvre en mode lecture $contenu = fread($fichier, filesize("mon_fichier2.txt")); fclose($fichier); echo "Contenu : " . $contenu; ?>
+```php fwrite() écrit du texte dans le fichier. fclose() ferme le fichier. 3.2. Lecture avec fopen() et fread() <?php $fichier = fopen("mon_fichier2.txt", "r"); // Ouvre en mode lecture $contenu = fread($fichier, filesize("mon_fichier2.txt")); fclose($fichier); echo "Contenu : " . $contenu;
 ```
 
 
@@ -88,12 +83,12 @@ forme de chaîne.
 
 Écriture dans un fichier JSON
 
-```php <?php $donnees = ["nom" => "Alice", "age" => 25]; $json = json_encode($donnees); file_put_contents("donnees.json", $json); echo "Fichier JSON créé."; ?>
+```php <?php $donnees = ["nom" => "Alice", "age" => 25]; $json = json_encode($donnees); file_put_contents("donnees.json", $json); echo "Fichier JSON créé.";
 ```
 
 Lecture d'un fichier JSON
 
-```php <?php $json = file_get_contents("donnees.json"); $donnees = json_decode($json, true); print_r($donnees); ?>
+```php <?php $json = file_get_contents("donnees.json"); $donnees = json_decode($json, true); print_r($donnees);
 ```
 
 
@@ -101,12 +96,12 @@ Lecture d'un fichier JSON
 
 Écriture dans un fichier CSV
 
-```php <?php $donnees = [ ["Nom", "Age"], ["Alice", 25], ["Bob", 30] ]; $fichier = fopen("donnees.csv", "w"); foreach ($donnees as $ligne) { fputcsv($fichier, $ligne); } fclose($fichier); echo "Fichier CSV créé."; ?>
+```php <?php $donnees = [ ["Nom", "Age"], ["Alice", 25], ["Bob", 30] $fichier = fopen("donnees.csv", "w"); foreach ($donnees as $ligne) { fputcsv($fichier, $ligne); fclose($fichier); echo "Fichier CSV créé.";
 ```
 
 Lecture d'un fichier CSV
 
-```javascript <?php $fichier = fopen("donnees.csv", "r"); while (($ligne = fgetcsv($fichier)) !== false) { print_r($ligne); } fclose($fichier); ?>
+```javascript <?php $fichier = fopen("donnees.csv", "r"); while (($ligne = fgetcsv($fichier)) !== false) { print_r($ligne); fclose($fichier);
 ```
 
 
@@ -134,14 +129,14 @@ débutants
 ### 6.1. Vérifier l'existence d'un fichier
 
 
-```php <?php if (file_exists("mon_fichier.txt")) { echo "Le fichier existe."; } else { echo "Le fichier n'existe pas."; } ?>
+```php <?php if (file_exists("mon_fichier.txt")) { echo "Le fichier existe."; } else { echo "Le fichier n'existe pas.";
 ```
 
 
 ### 6.2. Modifier les permissions d'un fichier
 
 
-```php <?php chmod("mon_fichier.txt", 0755); echo "Permissions modifiées."; ?>
+```php <?php chmod("mon_fichier.txt", 0755); echo "Permissions modifiées.";
 ```
 
 
