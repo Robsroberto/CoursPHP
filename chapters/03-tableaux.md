@@ -1,6 +1,5 @@
 # Les Tableaux PHP
 
-les_Tableaux_php.md2023-11-23
 
 ## Chapitre : Les Tableaux en PHP
 
@@ -17,13 +16,7 @@ les_Tableaux_php.md2023-11-23
 ### Exercices
 
 
-### TP
-
-
 ### Conclusion
-
-
-## Par Robert DIASSÉ
 
 
 ## Introduction aux Tableaux en PHP
@@ -35,7 +28,7 @@ En programmation, un tableau est une structure de données qui permet de stocker
 
 ## Utilité des Tableaux
 
-Les tableaux sont utilisés pour stocker des collections de données de manière organisée. Ils offrent une solution efficace pour manipuler des ensembles de valeurs et sont essentiels pour de nombreuses tâches en programmation. Stockage de données multiples : Les tableaux permettent de stocker plusieurs valeurs sous une seule variable. Facilité de manipulation : Les tableaux offrent des fonctionnalités pour accéder, ajouter, supprimer et modifier des éléments de manière simple et efficace. Utilisation avec les boucles : Les tableaux s'intègrent bien avec les boucles, facilitant le traitement des données en masse. les_Tableaux_php.md2023-11-23
+Les tableaux sont utilisés pour stocker des collections de données de manière organisée. Ils offrent une solution efficace pour manipuler des ensembles de valeurs et sont essentiels pour de nombreuses tâches en programmation. Stockage de données multiples : Les tableaux permettent de stocker plusieurs valeurs sous une seule variable. Facilité de manipulation : Les tableaux offrent des fonctionnalités pour accéder, ajouter, supprimer et modifier des éléments de manière simple et efficace. Utilisation avec les boucles : Les tableaux s'intègrent bien avec les boucles, facilitant le traitement des données en masse.
 
 ## Types de Tableaux en PHP
 
@@ -52,7 +45,7 @@ Les tableaux à index numérique utilisent des indices numériques pour accéder
 
 Les tableaux associatifs utilisent des clés (noms) pour accéder à leurs éléments plutôt que des indices numériques. Exemple :
 
-```php $personne = array("nom" => "Doe", "prénom" => "John", "âge" => 30); //ou $personne = [ "nom" => "Doe", "prénom" => "John", "âge" => 30 ]; Dans cet exemple, $personne est un tableau associatif avec des clés "nom", "prénom", et "âge".
+```php $personne = array("nom" => "Doe", "prénom" => "John", "âge" => 30); //ou $personne = [ "nom" => "Doe", "prénom" => "John", "âge" => 30 Dans cet exemple, $personne est un tableau associatif avec des clés "nom", "prénom", et "âge".
 ```
 
 
@@ -69,7 +62,6 @@ l'accés aux éléments d'un tableau peut se faire en connaissance des indices o
 
 ### Ajout d'Éléments
 
-les_Tableaux_php.md2023-11-23
 
 ```code // Ajouter un élément à la fin d'un tableau à index numérique $fruits[] = "Kiwi"; // Ajouter un élément à un tableau associatif $personne["ville"] = "Paris";
 ```
@@ -78,7 +70,7 @@ les_Tableaux_php.md2023-11-23
 ### Parcours d'un Tableau
 
 
-```php // Parcourir un tableau à index numérique foreach ($fruits as $fruit) { echo $fruit . " "; } // Parcourir un tableau associatif foreach ($personne as $cle => $valeur) { echo $cle . ": " . $valeur . " "; }
+```php // Parcourir un tableau à index numérique foreach ($fruits as $fruit) { echo $fruit . " "; // Parcourir un tableau associatif foreach ($personne as $cle => $valeur) { echo $cle . ": " . $valeur . " ";
 ```
 
 Les tableaux en PHP offrent de nombreuses fonctions intégrées pour les utiliser et les manipuler. Voici quelques exemples :
@@ -99,16 +91,12 @@ Les tableaux en PHP offrent de nombreuses fonctions intégrées pour les utilise
 
 ## Manipulation Avancée des Tableaux en PHP
 
-Maintenant que nous avons une compréhension de base des tableaux en PHP, explorons quelques fonctions intégrées pour une manipulation plus avancée. les_Tableaux_php.md2023-11-23
+Maintenant que nous avons une compréhension de base des tableaux en PHP, explorons quelques fonctions intégrées pour une manipulation plus avancée.
 
 ### Fonctions pour la Manipulation des Tableaux
 
 
-```php 1. array_push et array_pop Ces fonctions permettent d'ajouter des éléments à la fin d'un tableau (array_push) et de les retirer de la fin (array_pop). // Ajouter un élément à la fin du tableau array_push($fruits, "Mangue"); // Retirer l'élément de la fin du tableau $elementRetire = array_pop($fruits); 2. array_shift et array_unshift Ces fonctions permettent d'ajouter des éléments au début d'un tableau (array_unshift) et de les retirer du début (array_shift). // Ajouter un élément au début du tableau array_unshift($fruits, "Fraise"); // Retirer l'élément du début du tableau $elementRetire = array_shift($fruits); 3. array_merge La fonction array_merge fusionne deux tableaux en un seul. $nouveauxFruits = array("Ananas", "Papaye"); $fruits = array_merge($fruits, $nouveauxFruits); 4. array_slice array_slice extrait une partie d'un tableau. $portion = array_slice($fruits, 1, 2); // Extrait les éléments de l'index 1 à 2 5. array_splice array_splice supprime et remplace des éléments dans un tableau. // Remplace deux éléments à partir de l'index 1 array_splice($fruits, 1, 2, "Raisin", "Pêche");
-```
-
-
-```php 6. array_reverse array_reverse inverse l'ordre des éléments d'un tableau. $fruitsInverses = array_reverse($fruits); 7. array_search array_search recherche la clé d'une valeur dans un tableau. $cle = array_search("Pomme", $fruits); // Retourne la clé de "Pomme" 8. in_array in_array vérifie si une valeur existe dans un tableau. $existe = in_array("Banane", $fruits); // Retourne true si "Banane" existe 9. array_keys et array_values array_keys retourne les clés d'un tableau, et array_values retourne les valeurs. $cles = array_keys($personne); // Retourne les clés du tableau associatif $valeurs = array_values($personne); // Retourne les valeurs du tableau associatif 10. array_unique array_unique supprime les doublons d'un tableau. $fruitsUniques = array_unique($fruits);
+```php 1. array_push et array_pop Ces fonctions permettent d'ajouter des éléments à la fin d'un tableau (array_push) et de les retirer de la fin (array_pop). // Ajouter un élément à la fin du tableau array_push($fruits, "Mangue"); // Retirer l'élément de la fin du tableau $elementRetire = array_pop($fruits); 2. array_shift et array_unshift Ces fonctions permettent d'ajouter des éléments au début d'un tableau (array_unshift) et de les retirer du début (array_shift). // Ajouter un élément au début du tableau array_unshift($fruits, "Fraise"); // Retirer l'élément du début du tableau $elementRetire = array_shift($fruits); 3. array_merge La fonction array_merge fusionne deux tableaux en un seul. $nouveauxFruits = array("Ananas", "Papaye"); $fruits = array_merge($fruits, $nouveauxFruits); 4. array_slice array_slice extrait une partie d'un tableau. $portion = array_slice($fruits, 1, 2); // Extrait les éléments de l'index 1 à 2 5. array_splice array_splice supprime et remplace des éléments dans un tableau. // Remplace deux éléments à partir de l'index 1 array_splice($fruits, 1, 2, "Raisin", "Pêche"); 6. array_reverse array_reverse inverse l'ordre des éléments d'un tableau. $fruitsInverses = array_reverse($fruits); 7. array_search array_search recherche la clé d'une valeur dans un tableau. $cle = array_search("Pomme", $fruits); // Retourne la clé de "Pomme" 8. in_array in_array vérifie si une valeur existe dans un tableau. $existe = in_array("Banane", $fruits); // Retourne true si "Banane" existe 9. array_keys et array_values array_keys retourne les clés d'un tableau, et array_values retourne les valeurs. $cles = array_keys($personne); // Retourne les clés du tableau associatif $valeurs = array_values($personne); // Retourne les valeurs du tableau associatif 10. array_unique array_unique supprime les doublons d'un tableau. $fruitsUniques = array_unique($fruits);
 ```
 
 Continuons notre exploration des tableaux en PHP avec des exemples plus avancés sur les tableaux.
@@ -118,9 +106,9 @@ Continuons notre exploration des tableaux en PHP avec des exemples plus avancés
 
 ### 1. Tableau Multidimensionnel
 
-Un tableau multidimensionnel est un tableau qui contient d'autres tableaux. Cela permet de représenter des structures de données plus complexes. les_Tableaux_php.md2023-11-23
+Un tableau multidimensionnel est un tableau qui contient d'autres tableaux. Cela permet de représenter des structures de données plus complexes.
 
-```php $personnes = array( array("nom" => "Doe", "prénom" => "John", "âge" => 30), array("nom" => "Smith", "prénom" => "Jane", "âge" => 25), array("nom" => "Brown", "prénom" => "Bob", "âge" => 35) ); // Accéder à un élément dans un tableau multidimensionnel echo $personnes[0]["prénom"]; // Affiche "John"
+```php $personnes = array( array("nom" => "Doe", "prénom" => "John", "âge" => 30), array("nom" => "Smith", "prénom" => "Jane", "âge" => 25), array("nom" => "Brown", "prénom" => "Bob", "âge" => 35) // Accéder à un élément dans un tableau multidimensionnel echo $personnes[0]["prénom"]; // Affiche "John"
 ```
 
 
@@ -151,9 +139,9 @@ PHP offre des fonctions pour trier les tableaux. Par exemple, pour trier un tabl
 
 ### Exercice 2 : Tableau Associatif
 
-Créez un tableau associatif représentant une voiture avec des informations telles que la marque, le modèle, et l'année. Affichez ces informations. les_Tableaux_php.md2023-11-23
+Créez un tableau associatif représentant une voiture avec des informations telles que la marque, le modèle, et l'année. Affichez ces informations.
 
-```php $voiture = array( "marque" => "Toyota", "modèle" => "Corolla", "année" => 2022 ); foreach ($voiture as $cle => $valeur) { echo $cle . ": " . $valeur . "<br>"; }
+```php $voiture = array( "marque" => "Toyota", "modèle" => "Corolla", "année" => 2022 foreach ($voiture as $cle => $valeur) { echo $cle . ": " . $valeur . "<br>";
 ```
 
 
@@ -178,7 +166,7 @@ Créez un tableau représentant une liste de contacts. Chaque contact doit avoir
 
 ### TP 5 : Jeu de Morpion
 
-Créez un tableau à deux dimensions représentant un plateau de jeu de Morpion. Réalisez les opérations suivantes : Affichez le plateau de jeu. Permettez à un joueur de placer son symbole (X ou O) sur le plateau. Vérifiez s'il y a un gagnant. Ces travaux pratiques aideront à renforcer votre compréhension des tableaux en PHP et de leurs applications pratiques. N'hésitez pas à expérimenter et à personnaliser ces exercices pour améliorer vos compétences. les_Tableaux_php.md2023-11-23
+Créez un tableau à deux dimensions représentant un plateau de jeu de Morpion. Réalisez les opérations suivantes : Affichez le plateau de jeu. Permettez à un joueur de placer son symbole (X ou O) sur le plateau. Vérifiez s'il y a un gagnant. Ces travaux pratiques aideront à renforcer votre compréhension des tableaux en PHP et de leurs applications pratiques. N'hésitez pas à expérimenter et à personnaliser ces exercices pour améliorer vos compétences.
 
 ## Conclusion
 
