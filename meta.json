@@ -1,0 +1,21 @@
+{
+  "slug": "php",
+  "title": "PHP — Développement Web Dynamique",
+  "description": "Maîtrise PHP : conditions, tableaux, fonctions, formulaires, bases de données, sessions et POO.",
+  "level": "intermédiaire",
+  "price": 5000,
+  "free_chapters": 4,
+  "tags": ["PHP", "MySQL", "Backend"],
+  "version": "1.0.0",
+  "chapters": [
+    {"file": "01-introduction.md",   "title": "Introduction à PHP"},
+    {"file": "02-conditions.md",      "title": "Conditions & Boucles"},
+    {"file": "03-tableaux.md",        "title": "Les Tableaux PHP"},
+    {"file": "04-fonctions.md",       "title": "Les Fonctions PHP"},
+    {"file": "05-formulaires.md",     "title": "Gestion des Formulaires"},
+    {"file": "06-base-de-donnees.md", "title": "Connexion Base de Données"},
+    {"file": "07-sessions.md",        "title": "Sessions & Cookies"},
+    {"file": "08-fichiers.md",        "title": "Manipulation de Fichiers"},
+    {"file": "09-poo.md",             "title": "Programmation Orientée Objet"}
+  ]
+}
