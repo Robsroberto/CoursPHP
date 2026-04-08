@@ -1,11 +1,7 @@
 # Programmation Orientée Objet
 
-9-POO_php.md2025-02-27
 
 ## Programmation Orientée Objet (POO) en PHP
-
-
-## Par Robert DIASSÉ
 
 
 ## Introduction
@@ -20,12 +16,7 @@ Réutilisation du code : grâce à l'héritage, on peut éviter les répétition
 
 Le Modèle du Monde Réel Une classe est un modèle qui définit des objets ayant des caractéristiques et des comportements. Imagine un plan d’architecte pour une maison : il définit la structure, mais ce n’est qu’une fois construite que la maison devient réelle. De la même manière, une classe en POO est un modèle, et un objet est une instance de ce modèle. Exemple : Une recette de cuisine est une classe (modèle) et chaque plat préparé selon cette recette est un objet. Dans un jeu vidéo, un personnage possède des caractéristiques (points de vie, force, vitesse) et des comportements (attaquer, courir, sauter). On peut modéliser cela en POO :
 
-```code class Personnage { public $nom; public $vie = 100;
-```
-
-9-POO_php.md2025-02-27
-
-```php public function __construct($nom) { $this->nom = $nom; } public function attaquer() { echo "$this->nom attaque !"; } } $joueur1 = new Personnage("Héros"); $joueur1->attaquer();
+```php class Personnage { public $nom; public $vie = 100; public function __construct($nom) { $this->nom = $nom; public function attaquer() { echo "$this->nom attaque !"; $joueur1 = new Personnage("Héros"); $joueur1->attaquer();
 ```
 
 
@@ -48,11 +39,7 @@ de la création de l'objet.
 
 La Protection des Données L'encapsulation protège l'accès aux données d'un objet en contrôlant leur visibilité. Elle restreint l'accès direct aux attributs d’un objet pour éviter toute modification accidentelle. C'est comme une boîte avec un cadenas : seules les personnes ayant la clé (les méthodes publiques) peuvent y accéder. Exemple : Un distributeur de billets ne permet pas d’accéder directement à l'argent. L’utilisateur doit suivre un processus (entrer un code) pour obtenir l’argent, tout comme les méthodes d’un objet permettent de modifier des attributs privés en toute sécurité.
 
-```php class CompteBancaire { private $solde = 0; // Accessible uniquement dans la classe public function deposer($montant) { $this->solde += $montant; } public function voirSolde() {
-```
-
-
-```php return $this->solde; } } $compte = new CompteBancaire(); $compte->deposer(500); echo $compte->voirSolde();
+```php class CompteBancaire { private $solde = 0; // Accessible uniquement dans la classe public function deposer($montant) { $this->solde += $montant; public function voirSolde() { return $this->solde; $compte = new CompteBancaire(); $compte->deposer(500); echo $compte->voirSolde();
 ```
 
 
@@ -74,7 +61,7 @@ solde est suffisant.
 
 Réutilisation et Extension L'héritage permet de créer des classes dérivées d'une classe existante. Elle permet de créer une nouvelle classe basée sur une autre, évitant ainsi de réécrire du code redondant. Exemple : Une voiture de sport et une voiture électrique sont toutes deux des types de voitures (classe parent), mais elles ont leurs propres spécificités (classes filles). Une voiture de sport peut avoir un moteur puissant, tandis qu'une voiture électrique a une batterie spécifique, mais elles partagent toutes deux des attributs communs comme les roues et le volant.
 
-```php class Animal { protected $nom; public function __construct($nom) { $this->nom = $nom; } public function parler() { echo "$this->nom fait un bruit"; } } class Chien extends Animal { public function parler() { echo "$this->nom aboie"; } } $rex = new Chien("Rex"); $rex->parler();
+```php class Animal { protected $nom; public function __construct($nom) { $this->nom = $nom; public function parler() { echo "$this->nom fait un bruit"; class Chien extends Animal { public function parler() { echo "$this->nom aboie"; $rex = new Chien("Rex"); $rex->parler();
 ```
 
 
@@ -94,7 +81,7 @@ Réutilisation et Extension L'héritage permet de créer des classes dérivées 
 
 Un Comportement Adaptable Le polymorphisme permet d'avoir plusieurs méthodes portant le même nom mais ayant des comportements différents. Il permet d’utiliser une même méthode pour différents types d’objets. Cela permet d’écrire du code plus flexible. Exemple : Un interrupteur allume différentes lampes, ventilateurs ou appareils électroniques selon l’endroit où il est utilisé. Tous ces objets ont un bouton “ON/OFF”, mais l'effet est différent selon l’appareil.
 
-```php class Forme { public function aire() { return 0; } } class Carre extends Forme { private $cote; public function __construct($cote) { $this->cote = $cote; } public function aire() { return $this->cote * $this->cote; } }
+```php class Forme { public function aire() { return 0; class Carre extends Forme { private $cote; public function __construct($cote) { $this->cote = $cote; public function aire() { return $this->cote * $this->cote;
 ```
 
 
@@ -107,9 +94,9 @@ Un Comportement Adaptable Le polymorphisme permet d'avoir plusieurs méthodes po
 
 ## 5. Gestion des exceptions
 
-La Sécurité du Code Les exceptions permettent de gérer les erreurs et d’empêcher les crashs. Exemple : Un ascenseur ne doit pas fonctionner si les portes sont ouvertes. Si quelqu’un tente d’appuyer sur un bouton pour monter alors que les portes sont ouvertes, un message d'erreur s'affiche plutôt que de démarrer le moteur. 9-POO_php.md2025-02-27
+La Sécurité du Code Les exceptions permettent de gérer les erreurs et d’empêcher les crashs. Exemple : Un ascenseur ne doit pas fonctionner si les portes sont ouvertes. Si quelqu’un tente d’appuyer sur un bouton pour monter alors que les portes sont ouvertes, un message d'erreur s'affiche plutôt que de démarrer le moteur.
 
-```php class Division { public function diviser($a, $b) { if ($b == 0) { throw new Exception("Division par zéro interdite !"); } return $a / $b; } } try { $calcul = new Division(); echo $calcul->diviser(10, 0); } catch (Exception $e) { echo "Erreur : " . $e->getMessage(); }
+```php class Division { public function diviser($a, $b) { if ($b == 0) { throw new Exception("Division par zéro interdite !"); return $a / $b; try { $calcul = new Division(); echo $calcul->diviser(10, 0); } catch (Exception $e) { echo "Erreur : " . $e->getMessage();
 ```
 
 
@@ -121,7 +108,7 @@ Créez une exception pour empêcher un solde bancaire négatif.
 
 La programmation procédurale consiste à exécuter des instructions ligne par ligne, tandis que la POO regroupe les données et leur traitement dans des objets. Un restaurant géré en procédural serait une cuisine où chaque employé doit se rappeler des recettes par cœur. En POO, on a un chef qui gère les recettes sous forme de fiches bien organisées, permettant une meilleure gestion et un service plus efficace.
 
-```php // Procédural $nom = "Rex"; function parler($nom) { echo "$nom aboie"; } parler($nom); // Objet $rex = new Chien("Rex"); $rex->parler();
+```php // Procédural $nom = "Rex"; function parler($nom) { echo "$nom aboie"; parler($nom); // Objet $rex = new Chien("Rex"); $rex->parler();
 ```
 
 
@@ -131,7 +118,7 @@ La programmation procédurale consiste à exécuter des instructions ligne par l
 ```code 1. Créer la classe Livre avec titre, auteur, disponible. 2. Créer la classe Membre avec nom, prenom et une méthode pour emprunter un livre. 3. Créer la classe Bibliothèque qui stocke une collection de livres.
 ```
 
-4. Gérer l'ajout, le retrait et l'affichage des livres. 9-POO_php.md2025-02-27 5. Utiliser la gestion des exceptions pour éviter les erreurs d'emprunt.
+4. Gérer l'ajout, le retrait et l'affichage des livres. 5. Utiliser la gestion des exceptions pour éviter les erreurs d'emprunt.
 
 ## Exercices pratiques
 
