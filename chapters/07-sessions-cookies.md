@@ -1,11 +1,7 @@
 # 07 Sessions Cookies
 
-7-Session et cookiesphp.md2025-02-20
 
 ## Manipulation des Cookies et Sessions en PHP
-
-
-## Par Robert DIASSÉ
 
 
 ## Introduction
@@ -22,12 +18,7 @@ Un cookie est un petit fichier stocké sur l'ordinateur du client via son naviga
 ## 2. Création d'un Cookie en PHP
 
 
-```code On utilise la fonction setcookie() pour créer un cookie.
-```
-
-7-Session et cookiesphp.md2025-02-20
-
-```php <?php // Créer un cookie qui expire dans 1 heure setcookie("nom_utilisateur", "Robert", time() + 3600, "/"); ?>
+```php On utilise la fonction setcookie() pour créer un cookie. <?php // Créer un cookie qui expire dans 1 heure setcookie("nom_utilisateur", "Robert", time() + 3600, "/");
 ```
 
 
@@ -41,7 +32,7 @@ Un cookie est un petit fichier stocké sur l'ordinateur du client via son naviga
 ## 3. Récupérer un Cookie
 
 
-```php Les cookies sont stockés dans $_COOKIE, un tableau associatif. <?php if (isset($_COOKIE["nom_utilisateur"])) { echo "Bonjour, " . $_COOKIE["nom_utilisateur"]; } else { echo "Aucun cookie défini."; } ?>
+```php Les cookies sont stockés dans $_COOKIE, un tableau associatif. <?php if (isset($_COOKIE["nom_utilisateur"])) { echo "Bonjour, " . $_COOKIE["nom_utilisateur"]; } else { echo "Aucun cookie défini.";
 ```
 
 
@@ -56,7 +47,7 @@ Un cookie est un petit fichier stocké sur l'ordinateur du client via son naviga
 
 On supprime un cookie en définissant une date d'expiration passée.
 
-```php <?php setcookie("nom_utilisateur", "", time() - 3600, "/"); // Expire immédiatement ?>
+```php <?php setcookie("nom_utilisateur", "", time() - 3600, "/"); // Expire immédiatement
 ```
 
 
@@ -76,7 +67,7 @@ Contrairement aux cookies, les sessions stockent les informations côté serveur
 ## 2. Démarrer une Session
 
 
-```php Avant d'utiliser une session, on doit toujours l'initialiser avec session_start(). <?php session_start(); // Toujours en début de script $_SESSION["nom"] = "Robert"; echo "Nom stocké en session : " . $_SESSION["nom"]; ?>
+```php Avant d'utiliser une session, on doit toujours l'initialiser avec session_start(). <?php session_start(); // Toujours en début de script $_SESSION["nom"] = "Robert"; echo "Nom stocké en session : " . $_SESSION["nom"];
 ```
 
 
@@ -89,7 +80,7 @@ Contrairement aux cookies, les sessions stockent les informations côté serveur
 ## 3. Récupérer une Variable de Session
 
 
-```php <?php session_start(); if (isset($_SESSION["nom"])) { echo "Bonjour, " . $_SESSION["nom"]; } else { echo "Session non définie."; } ?>
+```php <?php session_start(); if (isset($_SESSION["nom"])) { echo "Bonjour, " . $_SESSION["nom"]; } else { echo "Session non définie.";
 ```
 
 
@@ -102,11 +93,7 @@ Contrairement aux cookies, les sessions stockent les informations côté serveur
 ## 4. Détruire une Session
 
 
-```code On supprime une session en appelant session_destroy().
-```
-
-
-```php <?php session_start(); session_destroy(); // Supprime toutes les variables de session header("Location: index.php"); // Redirige l'utilisateur ?>
+```php On supprime une session en appelant session_destroy(). <?php session_start(); session_destroy(); // Supprime toutes les variables de session header("Location: index.php"); // Redirige l'utilisateur
 ```
 
 
@@ -119,7 +106,7 @@ Contrairement aux cookies, les sessions stockent les informations côté serveur
 ## III. Connexion Sécurisée avec PDO et Sessions
 
 
-```php 1. Connexion à la Base de Données avec PDO (db.php) <?php function getConnection() { try { $pdo = new PDO("mysql:host=localhost;dbname=gestion_utilisateurs;charset=utf8", "root", "", [ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ]); return $pdo; } catch (PDOException $e) { die("Erreur de connexion : " . $e->getMessage()); } } ?>
+```php 1. Connexion à la Base de Données avec PDO (db.php) <?php function getConnection() { try { $pdo = new PDO("mysql:host=localhost;dbname=gestion_utilisateurs;charset=utf8", "root", "", [ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ]); return $pdo; } catch (PDOException $e) { die("Erreur de connexion : " . $e->getMessage());
 ```
 
 
@@ -130,11 +117,7 @@ Contrairement aux cookies, les sessions stockent les informations côté serveur
 
 tableau associatif.
 
-```php 2. Formulaire de Connexion avec PDO (login.php) <?php session_start();
-```
-
-
-```php require 'db.php'; if (isset($_POST['login'])) { $pdo = getConnection(); $username = trim($_POST['username']); $password = trim($_POST['password']); $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE username = ?"); $stmt->execute([$username]); $user = $stmt->fetch(); if ($user && password_verify($password, $user['password'])) { $_SESSION['username'] = $user['username']; setcookie("utilisateur", $user['username'], time() + 3600, "/"); header("Location: dashboard.php"); exit; } else { echo "Identifiants incorrects."; } } ?>
+```php 2. Formulaire de Connexion avec PDO (login.php) <?php session_start(); require 'db.php'; if (isset($_POST['login'])) { $pdo = getConnection(); $username = trim($_POST['username']); $password = trim($_POST['password']); $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE username = ?"); $stmt->execute([$username]); $user = $stmt->fetch(); if ($user && password_verify($password, $user['password'])) { $_SESSION['username'] = $user['username']; setcookie("utilisateur", $user['username'], time() + 3600, "/"); header("Location: dashboard.php"); exit; } else { echo "Identifiants incorrects.";
 ```
 
 
@@ -145,11 +128,7 @@ tableau associatif.
 
 Récupère les informations de l'utilisateur via PDO.
 
-```php password_verify($password, $user['password']) vérifie le mot de passe. 3. Page Protégée (dashboard.php) <?php session_start(); if (!isset($_SESSION['username'])) { header("Location: login.php"); exit; } echo "Bienvenue, " . $_SESSION['username']; ?> <a href="logout.php">Déconnexion</a> 4. Déconnexion (logout.php) <?php session_start();
-```
-
-
-```code session_destroy(); setcookie("utilisateur", "", time() - 3600, "/"); header("Location: login.php"); exit; ?>
+```php password_verify($password, $user['password']) vérifie le mot de passe. 3. Page Protégée (dashboard.php) <?php session_start(); if (!isset($_SESSION['username'])) { header("Location: login.php"); exit; echo "Bienvenue, " . $_SESSION['username']; <a href="logout.php">Déconnexion</a> 4. Déconnexion (logout.php) <?php session_start(); session_destroy(); setcookie("utilisateur", "", time() - 3600, "/"); header("Location: login.php"); exit;
 ```
 
 
