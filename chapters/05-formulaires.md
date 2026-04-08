@@ -1,11 +1,7 @@
 # Gestion des Formulaires
 
-5-gestion des formulaires.md2024-12-18
 
 ## Gestion des donnée d'un formulaire
-
-
-## Par Robert DIASSÉ
 
 
 ### Introduction
@@ -31,7 +27,7 @@ Méthode GET Utilisation : Envoie les données via l'URL. Avantages : Les donné
 ```html <form method="GET" action="traitement.php"> <input type="text" name="nom" placeholder="Votre nom"> <input type="submit" value="Envoyer" name="submit"> </form>
 ```
 
-Méthode POST Utilisation : Envoie les données dans le corps de la requête HTTP. Avantages : Pas de limitation significative de la taille des données. Plus sécurisé que GET car les données ne sont pas visibles dans l'URL. 5-gestion des formulaires.md2024-12-18 Inconvénients : Les données ne sont pas visibles dans l'URL, ce qui rend le partage de liens direct impossible.
+Méthode POST Utilisation : Envoie les données dans le corps de la requête HTTP. Avantages : Pas de limitation significative de la taille des données. Plus sécurisé que GET car les données ne sont pas visibles dans l'URL. Inconvénients : Les données ne sont pas visibles dans l'URL, ce qui rend le partage de liens direct impossible.
 
 **Exemple :**
 
@@ -60,17 +56,12 @@ Les données envoyées par un formulaire HTML peuvent être récupérées en PHP
 
 Contient les données envoyées par la méthode GET. Exemple de récupération de données avec GET:
 
-```php if (isset($_GET['submit'])) { $nom = $_GET['nom']; echo "Nom (GET) : " . htmlspecialchars($nom); }
-```
-
-5-gestion des formulaires.md2024-12-18
-
-```php Variable Superglobale $_POST
+```php if (isset($_GET['submit'])) { $nom = $_GET['nom']; echo "Nom (GET) : " . htmlspecialchars($nom); Variable Superglobale $_POST
 ```
 
 Contient les données envoyées par la méthode POST. Exemple de récupération de données avec POST:
 
-```php if (isset($_POST['submit'])) { $nom = $_POST['nom']; echo "Nom (POST) : " . htmlspecialchars($nom); }
+```php if (isset($_POST['submit'])) { $nom = $_POST['nom']; echo "Nom (POST) : " . htmlspecialchars($nom);
 ```
 
 
@@ -82,7 +73,7 @@ Contient les données envoyées par la méthode POST. Exemple de récupération 
 
 
 
-```javascript if (isset($_POST['submit'])) { // Traitement des données }
+```javascript if (isset($_POST['submit'])) { // Traitement des données
 ```
 
 
@@ -95,11 +86,7 @@ Lorsque vous travaillez avec des formulaires et des données utilisateur, il est
 
 Exemple de Traitement Sécurisé des Données
 
-```javascript if ($_SERVER["REQUEST_METHOD"] == "POST") { if (isset($_POST['submit'])) { if (isset($_POST['nom']) && !empty($_POST['nom'])) { $nom = trim($_POST['nom']);
-```
-
-
-```php $nom = htmlspecialchars($nom); echo "Nom nettoyé et sécurisé : " . $nom; } else { echo "Veuillez entrer un nom."; } } }
+```php if ($_SERVER["REQUEST_METHOD"] == "POST") { if (isset($_POST['submit'])) { if (isset($_POST['nom']) && !empty($_POST['nom'])) { $nom = trim($_POST['nom']); $nom = htmlspecialchars($nom); echo "Nom nettoyé et sécurisé : " . $nom; } else { echo "Veuillez entrer un nom.";
 ```
 
 
@@ -107,16 +94,12 @@ Exemple de Traitement Sécurisé des Données
 
 Exemple 1 : Formulaire de Contact
 
-```html <form method="POST" action="contact.php"> <input type="text" name="nom" placeholder="Votre nom" required> <input type="email" name="email" placeholder="Votre email" required> <textarea name="message" placeholder="Votre message" required></textarea> <input type="submit" value="Envoyer" name="submit"> </form> // contact.php if ($_SERVER["REQUEST_METHOD"] == "POST") { if (isset($_POST['submit'])) { $nom = trim($_POST['nom']); $nom = htmlspecialchars($nom); $email = trim($_POST['email']); $email = htmlspecialchars($email); if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { echo "Adresse email invalide."; exit; } $message = trim($_POST['message']); $message = htmlspecialchars($message); // Enregistrer ou envoyer les données echo "Merci, $nom. Votre message a été envoyé."; } }
+```html <form method="POST" action="contact.php"> <input type="text" name="nom" placeholder="Votre nom" required> <input type="email" name="email" placeholder="Votre email" required> <textarea name="message" placeholder="Votre message" required></textarea> <input type="submit" value="Envoyer" name="submit"> </form> // contact.php if ($_SERVER["REQUEST_METHOD"] == "POST") { if (isset($_POST['submit'])) { $nom = trim($_POST['nom']); $nom = htmlspecialchars($nom); $email = trim($_POST['email']); $email = htmlspecialchars($email); if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { echo "Adresse email invalide."; exit; $message = trim($_POST['message']); $message = htmlspecialchars($message); // Enregistrer ou envoyer les données echo "Merci, $nom. Votre message a été envoyé.";
 ```
 
 Exemple 2 : Formulaire de Connexion
 
-```html <form method="POST" action="login.php"> <input type="text" name="username" placeholder="Nom d'utilisateur" required> <input type="password" name="password" placeholder="Mot de passe" required>
-```
-
-
-```php <input type="submit" value="Connexion" name="submit"> </form> // login.php if ($_SERVER["REQUEST_METHOD"] == "POST") { if (isset($_POST['submit'])) { $username = trim($_POST['username']); $username = htmlspecialchars($username); $password = trim($_POST['password']); $password = htmlspecialchars($password); // Validation et vérification des données if (!empty($username) && !empty($password)) { // Simuler une vérification de mot de passe if ($username == "admin" && $password == "password") { echo "Connexion réussie. Bienvenue, $username."; } else { echo "Nom d'utilisateur ou mot de passe incorrect."; } } else { echo "Veuillez remplir tous les champs."; } } }
+```html <form method="POST" action="login.php"> <input type="text" name="username" placeholder="Nom d'utilisateur" required> <input type="password" name="password" placeholder="Mot de passe" required> <input type="submit" value="Connexion" name="submit"> </form> // login.php if ($_SERVER["REQUEST_METHOD"] == "POST") { if (isset($_POST['submit'])) { $username = trim($_POST['username']); $username = htmlspecialchars($username); $password = trim($_POST['password']); $password = htmlspecialchars($password); // Validation et vérification des données if (!empty($username) && !empty($password)) { // Simuler une vérification de mot de passe if ($username == "admin" && $password == "password") { echo "Connexion réussie. Bienvenue, $username."; } else { echo "Nom d'utilisateur ou mot de passe incorrect."; } else { echo "Veuillez remplir tous les champs.";
 ```
 
 
